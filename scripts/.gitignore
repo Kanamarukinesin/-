@@ -1,0 +1,6 @@
+# .gitignore（任意）
+*.log
+*.Rhistory
+ancdna/work/*
+!ancdna/work/.gitkeep
+
