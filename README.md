@@ -21,7 +21,8 @@
 
 
 ## AADR（v62.0 1240k 公開版）の配置
-Dataverse から以下 **3ファイル** を取得して `~/ancdna/AADR/1240k` に置く:
+リンクはこちら　https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/FFIDCW
+Dataverse から以下 3ファイル を取得して `~/ancdna/AADR/1240k` に置く:
 - `v62.0_1240k_public.geno`
 - `v62.0_1240k_public.snp`
 - `v62.0_1240k_public.ind`
@@ -31,4 +32,7 @@ Dataverse から以下 **3ファイル** を取得して `~/ancdna/AADR/1240k` �
 ln -sf v62.0_1240k_public.geno aadr_1240k.geno
 ln -sf v62.0_1240k_public.snp  aadr_1240k.snp
 ln -sf v62.0_1240k_public.ind  aadr_1240k.ind
+
+
+
 
