@@ -1,3 +1,5 @@
+
+
 # 1) 依存のセットアップ（PATH など）
 bash scripts/01_setup.sh
 
