@@ -1,0 +1,24 @@
+# 1) 依存のセットアップ（PATH など）
+bash scripts/01_setup.sh
+
+# 2) 生ファイルをクリーニング（LivingDNA/23andMe 形式）
+#   入力はタブ区切りで 4列: rsid chr pos genotype（1 or 2文字）を想定
+bash scripts/02_clean_livingdna.sh /path/to/your_raw.txt  me_raw_clean.txt
+
+# 3) PLINK 取込み & QC & パリンドロミック除外
+bash scripts/03_plink_qc.sh me_raw_clean.txt me_qc_np
+
+# 4) PLINK → EIGENSTRAT
+bash scripts/04_convert_to_eigenstrat.sh me_qc_np  me.eigenstrat
+
+# 5) AADR とマージ（EIG mergeit）
+bash scripts/05_merge_with_aadr.sh  ~/ancdna/AADR/1240k/aadr_1240k  me.eigenstrat  merged_1240k
+
+# 6) qpAdm 2元（Korean/CHB/Han 比較と可視化）
+R --vanilla -q -f scripts/06_qpadm_2way.R
+
+# 7) 2元ロバスト格子（右側/相方の違いで安定性チェック）
+R --vanilla -q -f scripts/07_qpadm_robust_grid.R
+
+# 8) 3元（Jomon + Yayoi(NEA) + Kofun(EA)）探索と可視化
+R --vanilla -q -f scripts/08_qpadm_3way.R
